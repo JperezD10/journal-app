@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { startLogOut } from '../../actions/auth';
 import { JournalEntries } from './JournalEntries';
 
@@ -13,13 +13,16 @@ export const Sidebar = () => {
         dispatch(startLogOut());
     }
 
+    //para obtener los valores de redux
+    const {name} = useSelector(state => state.auth);
+
     return (
         <div>
             <aside className='journal__sidebar'>
                 <div className="journal__sidebar-navbar">
                     <h3 className='mt-5'>
                         <i className='far fa-moon'></i>
-                        <span> Julian</span>
+                        <span> {name}</span>
                     </h3>
                     <button className='btn' onClick={handleLogOut}>
                         Logout

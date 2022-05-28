@@ -1,9 +1,10 @@
 import React from 'react'
 
 export const NotesAppBar = () => {
+  var options = { year: 'numeric', month: 'long', day: 'numeric' };
   return (
     <div className='notes_appbar'>
-        <span>8 de mayo 2022</span>
+        <span>{new Date(Date.now()).toLocaleString('es-AR', options)}</span>
         <div>
             <button className='btn'>
                 Picture
